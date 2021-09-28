@@ -104,11 +104,39 @@ console.log(convToUpperCase('hello bandung'));
 
 /// EDIT HERE
 function firstNonRepeatedChar(word) { 
-    if (word.includes(' ')) {
-        return 'Kata tidak boleh dipisah';
-    }
+    // if (word.includes(' ')) {
+    //     return 'Kata tidak boleh dipisah';
+    // }
+
+    let huruf;
+    let index;
+    let j;
 
     //looping character from word
-    for (let i=0; i<word.length; i++);
+    for (let index = 0; index < word.length; index++); {
+        huruf = word[index];
+        if (huruf == " "){
+            return 'Kata tidak boleh dipisah';
+        }
+    }
 
+    for (let index = 0; index < word.length; index++){
+        huruf = word[index];
+        let cek = false;
+        for (letj = 0; j < word.length; j++){
+            if (huruf == word[j] && j!=index)
+            {
+                cek = true;
+                break;
+            }
+        }
+        if (cek == false){
+            return huruf;
+            break;
+        }
+    }
+    return '';
  }
+ console.log(firstNonRepeatedChar('hello world'));
+ console.log(firstNonRepeatedChar('alloha'));
+ console.log(firstNonRepeatedChar('wooohoowh'));
