@@ -167,25 +167,23 @@
       
       // EDIT HERE
       elBtnComment.addEventListener("click", form);
-     
-
-      function form(){
+      function form() {
         elCommentSection.classList.remove("d-none");
         elBtnComment.classList.add("d-none");
       }
 
-      elBtnCancel.addEventListener("click", cancel);
-      function cancel(){
+      elBtnCancel.addEventListener("click", cancel);      
+      function cancel() {
         elCommentSection.classList.add("d-none");
         elBtnComment.classList.remove("d-none");
       }
 
       elBtnSubmit.addEventListener("click", comment);
-      function comment(e){
+      function comment(e) {
         e.preventDefault();
         const komentar = document.createElement("div");
-        komentar.classList.add("fw-bold","text-capitalize");
-        komentar.innerText = elInputComment.value;
+        komentar.classList.add("fw-bold", "text-capitalize");
+        komentar.innerText = elInputUsername.value;
         const wrap = document.createElement("div");
         wrap.classList.add("ms-2", "me-auto");
         wrap.append(komentar);
@@ -197,8 +195,10 @@
         elCommentSection.classList.add("d-none");
         elBtnComment.classList.remove("d-none");
         elInputUsername.value = "";
-        elInputComment.value = ""; 
+        elInputComment.value = "";
       }
+      
+
 
 
 
