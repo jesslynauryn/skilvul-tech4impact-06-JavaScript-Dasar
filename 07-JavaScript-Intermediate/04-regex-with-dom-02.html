@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Skilvul</title>
+  </head>
+  <body>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" />
+    <button id="btn-submit" style="display: block; margin-top: 10px">
+      submit
+    </button>
+    <script>
+      /// EDIT DOWN HERE
+      const elInputEmail = document.querySelector("#email");
+      const elBtnSubmit = document.querySelector("#btn-submit");
+      const elInputPass = document.querySelector("#password");
+      const emailValidator = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      const passValidator = /[A-Za-z\d-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]{8,}/;
+      const capital = /[A-Z]/
+      const smallcase = /[a-z]/
+      const number = /[0-9]/
+      const symbol = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
+
+      elBtnSubmit.onclick = function(e) {
+        e.preventDefault();
+        if(!elInputEmail.value.match(emailValidator)){
+          alert("tolong masukkan email yang valid");
+        }
+        else if(elInputPass.value.match(passValidator) &&
+        elInputPass.value.match(capital) &&
+        elInputPass.value.match(smallcase) &&
+        elInputPass.value.match(number) &&
+        elInputPass.value.match(symbol)){
+          alert("Welcome to the Jungle");
+        } else {
+          alert("tolong masukkan password sesuai ketentuan");
+        }
+    
+      }
+ 
+    
+    </script>
+  </body>
+</html>
