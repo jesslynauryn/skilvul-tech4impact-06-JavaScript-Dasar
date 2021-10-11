@@ -1,0 +1,3 @@
+Apa itu localStorage?
+Apa itu cookies?
+Apa perbedaan antara localStorage dan sessionStorage?
