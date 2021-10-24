@@ -70,60 +70,70 @@ phone.printSpecification();
 
 //soal4
 class Student {
-  constructor(name, email) {
+  constructor(name, email, courseOfferings) {
     this.name = name;
     this.email = email;
     this.courseOfferings = [];
   }
-  
-  takeNewCourse() {
-    this.courseOfferings = Course.subject + 1;
+  getCourse(course) {
+    let index;
+    for (let i=0; i<this.courseOfferings.length; i++){
+      if(this.courseOfferings[i].course.getSubject() === course.getSubject()) {
+        index = i;
+        break;
+      }
+    }
+    return index;
   }
   
-  takeATest() {
-    if (this.attendance < this.courseAttendance) {
-      return null;
-    }else
-      return `${this.grade}`
-   }
-  
-  courseAttendance() { 
-    return this.attendance = this.attendance + 1;
-   }
-}
-
-class CourseOffering { 
-  constructor(course, grade, attendance) {
-    this.course = course;
-    this.grade = grade;
-    this.attendance = attendance [0];
-}
-  getCourse() {
-    this.course = Course.subject;
-    return `${this.course}`;
+  takeNewCourse(course) { 
+    let courseOffering = new CourseOffering(course);
+    this.courseOfferings.push(courseOffering);
+    //decrease quota
+    course.decreaseQuota();
+    // return this.courseOfferings = course;
   }
-  getAttendance() {
-    this.attendance = Course.attendance;
-    return `${this.attendance}`;
+  takeATest(course) { 
+    const i = this.getCourse(course);
+    if (this.courseOfferings[i].attendance >= course.getAttendance()){
+      this.courseOfferings[i].grade = Math.floor(Math.random()*100);
+    } else {
+      console.log("isi absen dulu");
+    } 
+    return this.course = course;
+  }
+  courseAttendance(attendance) { 
+    return this.attendance = attendance + 1;
   }
 }
 
 class Course { 
-  constructor(subject, quota, attendance) {
-      this.subject = subject;
-      this.quota = quota;
-      this.attendance = attendance;
-  }
-  getSubject() {
-      return `${this.subject}`;
-  }
-  getAttendance() {
-      return `${this.attendance}`;
-  }
-  decreaseQuota() {
-      return this.quota = this.quota - 1;
-  }
+  constructor(subject, quota, attendance){
+    this.subject = subject;
+    this.quota = quota;
+    this.attendance = 0;
+ }
 }
+
+class CourseOffering extends Course { 
+  constructor(subject){
+    super(subject);
+   
+    this.grade = 0
+    this.attendance = 0
+  }
+  
+ getSubject(){
+   return this.subject;
+ }
+ getAttendance(){
+  return `${this.attendance}`;
+ }
+ decreaseQuota(quota){
+  return this.quota = quota - 1;
+ }
+}
+
 
 const biology = new Course("biology", 10, 3);
 const physics = new Course("physics", 10, 2);
@@ -145,3 +155,4 @@ johnWatson.takeATest(biology);
 johnWatson.takeATest(physics);
 
 console.log(johnWatson.courseOfferings);
+
