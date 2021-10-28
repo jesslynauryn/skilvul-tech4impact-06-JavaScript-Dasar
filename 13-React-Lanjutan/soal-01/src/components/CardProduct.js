@@ -1,4 +1,4 @@
-import { string } from "prop-types";
+import { PropTypes } from "prop-types";
 
 const CardProduct = ({ name, image, price, addToCart }) => {
   return (
