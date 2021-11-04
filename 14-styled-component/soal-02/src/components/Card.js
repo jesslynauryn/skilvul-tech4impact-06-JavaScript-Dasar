@@ -7,13 +7,13 @@ import {
 } from "./styles/Card";
 import Button from "./Button";
 
-const Card = (props) => {
+const Card = ({ src, price, productName }) => {
   return (
     <CardContainer width="500px">
-      <CardImage src="{props.data.imageUrl}" />
+      <CardImage src={src} />
       <CardBody>
-        <CardPrice>{props.price}</CardPrice>
-        <CardProductName>{props.productName}</CardProductName>
+        <CardPrice>{price}</CardPrice>
+        <CardProductName>{productName}</CardProductName>
         <Button />
       </CardBody>
     </CardContainer>
