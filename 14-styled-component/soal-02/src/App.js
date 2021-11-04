@@ -24,10 +24,15 @@ export default function App() {
   ];
   return (
     <div>
-      <Card />
       <FlexContainer>
         {products.map((data) => {
-          return <Card data={data} />;
+          return (
+            <Card
+              src={data.imageUrl}
+              price={data.price}
+              productName={data.productName}
+            />
+          );
         })}
       </FlexContainer>
     </div>
