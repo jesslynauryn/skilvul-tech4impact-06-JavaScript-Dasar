@@ -9,16 +9,20 @@ const CardContainer = styled.div`
   -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 0.5em;
 `;
 
 const CardImage = styled.img`
   width: 100%;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
+  height: 500px;
+  object-fit: cover;
 `;
 
 const CardBody = styled.div`
   padding: 1em;
+  text-align: center;
 `;
 
 const CardPrice = styled.h5`
