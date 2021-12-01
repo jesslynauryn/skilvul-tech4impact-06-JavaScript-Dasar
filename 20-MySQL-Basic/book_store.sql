@@ -17,7 +17,7 @@ CREATE TABLE `books` (
 `description` TEXT,
 `place_sell` CHAR(3),
 `stock` INT DEFAULT 0,
-`creation_date` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
+`creation_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- update column --
