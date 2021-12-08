@@ -1,0 +1,44 @@
+1. Mohon jelaskan apa itu Node.js? Apa perbedannya dengan JavaScript?
+node js merupakan runtime environment utk javascript dan bersifat open-source dan cross-platform, bedanya dengan javascript yaitu JS adalah bahasa pemograman dan node.js adalah runtime environment, server-side JS.
+
+2. Mohon jelaskan arsitektur dari Node.js?
+1. dibangun diatas engine v8 google yang merupakan mesin JS tercepat. 
+2. Libuv library, yang memberi node.js akses ke sistem operasi mesin,  jaringan, sistem file, dan banyak lagi dengan fokus kuat pada asynchronous I / O (Input-output) dengan fitur lain yaitu event loop dan thread pool.
+3.  design pattern yaitu pool dan facade. Object pool berisi kumpulan object yang dapat digunakan task tertentu
+Façade yaitu design pattern yang memberikan tampilan antarmuka untuk body kodenya
+
+Node.js menggunakan arsitektur “Single Threaded Event Loop” untuk menangani beberapa client secara bersamaan.
+bagian arsitektur Node.js:
+Requests
+Request yang masuk dapat berupa blocking atau non-blocking, tergantung pada task web.
+
+Node.js server
+Server Node.js adalah platform server-side yang menerima request dari user, lalu memproses permintaan tersebut, dan mengembalikan respons ke pengguna.
+
+Event queue
+Event queue di server Node.js menyimpan request client yang masuk dan meneruskan permintaan tersebut satu per satu ke dalam thread pool.
+
+Thread pool
+Thread pool terdiri dari semua thread yang tersedia untuk melakukan beberapa task untuk memenuhi request client.
+
+Event loop
+Event Loop menerima request dan memprosesnya, kemudian mengembalikan respons yang tepat ke client.
+
+External resources
+External resource diperlukan untuk menangani blocking request client. Resource ini dapat dimanfaatkan untuk komputasi, penyimpanan data, dan sebagainya.
+
+3. Apa perbedaan antara Built-in Module, External Module, dan Custom Module pada Node.js?
+built-in module merupakan modul bawaan node js dan tinggal di import, 
+external module yaitu dengan menginstall terlebih dahulu menggunakan NPM,
+custom module yang bisa dibuat sendiri dengan membuat fungsi lalu diexport, daftarkan fungsi ke dalam properti objek exports agar bisa digunakan diluar file.
+
+4. Sebutkan salah satu contoh dari Built-in Module, External Module, dan Custom Module pada Node.js?
+built-in: http, fs, url, querystring, os, dll
+external: npm install moment, lalu import dan gunakan
+custom: export.salamSiang = function () {
+	return "Selamat Siang"
+};
+lalu import dan gunakan modul pada file
+
+
+
