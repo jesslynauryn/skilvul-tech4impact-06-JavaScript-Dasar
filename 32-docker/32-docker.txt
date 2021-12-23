@@ -1,0 +1,26 @@
+Jelaskan apa yang dimaksud dengan container pada docker !
+docker container merupakan wadah utk mengemas dan menjalankan aplikasi yang mencakup kode, runtime, system tools, dan pengaturan. Container hanya bisa mengakses resource yang telah ditentukan dalam docker image.
+
+Jelaskan apa perbedaan antara konsep container dengan virtual machine !
+container dapat berjalan langsung diatas sistem operasi, vm tidak, vm menggunakan kernel tersendiri untuk menjalankan aplikasi di dalamnya.
+container lebih efektif dan ringan dibandingkan dengan VM karena container hanya mengisolasi library dan aplikasi yg akan dijalankan saja.
+container dapat melakukan efisiensi resource dengan sebaik-baiknya pada sistem (bisa pakai resource container lain yg sedang idle)
+vm menggunakan seluruh resource yg ada pada host, sedangkan container hanya menggunakan sedikit resource dari host
+vm menggunakan kernel tersendiri yg kemungkinan akan diproses langsung pada host
+container tdk diizinkan utk mengakses kernel, sedangkan vm dpt menggunakan kernel tersendiri.
+
+
+Apa yang dimaksud dengan docker file ?
+dockerfile merupakan file teks yang berisi semua perintah yg bisa dijalankan user pada baris perintah untuk membuat image yg mencakup semua instruksi yg diperlukan docker untuk membagun image.
+
+Apa yang dimaksud dengan docker registery ?
+docker registry adalah tempat menyimpan dan mengelola docker image.
+
+Jelaskan bagaimana cara untuk menjalankan lebih dari 1 container secara bersamaan dan saling terhubung !
+dengan menggunakan docker compose yg merupakan alat untuk mendefinisikan dan menjalankan satu atau beberapa container yg saling terkait dengan sebuah command. 
+kita dapat menggunakannya dgn membuat sebuah file berekstensi yaml/yml yg di dalamnya terdapat konfigurasi-konfigurasi terhadap service aplikasi yg akan dijalankan.
+proses dasar penggunaan docker-compose:
+1. definisikan environment aplikasi dgn membuat dockerfile sehingga bisa digunakan kembali
+2.  mendefinisikan service lainnya dlm docker-compose.yml sehingga semuanya bisa berjalan bersamaan dlm environment yang terisolasi.
+3. jalankan command docker compose: docker-compose build dan docker-compose up melalui command prompt/shell (pada path file docker-compose.yml)
+
