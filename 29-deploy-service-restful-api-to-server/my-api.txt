@@ -1,0 +1,5 @@
+URL heroku:
+https://groupproject-backend-23-24.herokuapp.com/hotel
+
+URL masing-masing endpoint:
+https://documenter.getpostman.com/view/18533516/UVRGCiKq
