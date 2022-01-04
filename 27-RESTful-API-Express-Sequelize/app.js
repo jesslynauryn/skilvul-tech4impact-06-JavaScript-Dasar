@@ -3,6 +3,50 @@ const app = express();
 const HEWAN_MODEL = require("./models").hewan;
 const port = 3000;
 app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+// connect to database localhost
+const sequelizee = new Sequelize("db_hewan", "root", "", {
+  host: "localhost",
+  dialect: "mysql",
+});
+
+sequelizee
+  .authenticate()
+  .then(() => {
+    console.log("connection has been established successfully");
+  })
+  .then(() => {
+    Hewan.sync().then(() => console.log("table Hewan created"));
+  })
+  .catch((err) => {
+    console.log("unable to connect", err);
+  });
+
+// table Hewan models
+const Hewan = sequelizee.define(
+  "hewans",
+  {
+    id: {
+      type: Sequelize.DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
+    },
+    name: Sequelize.DataTypes.STRING,
+    umur: Sequelize.DataTypes.INTEGER,
+    nameSpesies: Sequelize.DataTypes.STRING,
+  },
+  {
+    createdAt: false,
+    updatedAt: false,
+  }
+);
+
 
 app.get("/hewan", (req, res) => {
     HEWAN_MODEL.findAll().then((result) => {
